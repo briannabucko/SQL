@@ -1,0 +1,29 @@
+-- create a crystal shop databse
+
+CREATE TABLE crystal_shop (id INTEGER PRIMARY KEY, item TEXT, color TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO crystal_shop VALUES (1, "amethyst", "purple", 15, 25);
+INSERT INTO crystal_shop VALUES (2, "clear quartz", "white", 12, 50);
+INSERT INTO crystal_shop VALUES (3, "smoky quartz", "grey", 13, 20);
+INSERT INTO crystal_shop VALUES (4, "rose quartz", "pink", 12, 37);
+INSERT INTO crystal_shop VALUES (5, "red jasper", "red", 15, 25);
+INSERT INTO crystal_shop VALUES (6, "malachite", "teal", 14, 32);
+INSERT INTO crystal_shop VALUES (7, "lapis lazuli", "blue", 12, 26);
+INSERT INTO crystal_shop VALUES (8, "carnelian", "orange", 11, 60);
+INSERT INTO crystal_shop VALUES (9, "black onyx", "black", 15, 43);
+INSERT INTO crystal_shop VALUES (10, "tigers eye", "yellow", 10, 35);
+INSERT INTO crystal_shop VALUES (11, "sodalite", "blue", 11, 28);
+INSERT INTO crystal_shop VALUES (12, "jade", "green", 15, 36);
+INSERT INTO crystal_shop VALUES (13, "hematite", "silver", 15, 23);
+INSERT INTO crystal_shop VALUES (14, "aquamarine", "teal", 12, 45);
+INSERT INTO crystal_shop VALUES (15, "citrine", "yellow", 13, 29);
+
+--display database ordered by price.
+SELECT * FROM crystal_shop ORDER BY price;
+
+--which color crystal do we have the least inventory of?
+SELECT max (quantity) FROM crystal_shop GROUP BY color ORDER BY quantity;
+
+--what is the cheapest blue crystal available?
+SELECT * FROM crystal_shop WHERE price < 13 AND color = "blue"
+
